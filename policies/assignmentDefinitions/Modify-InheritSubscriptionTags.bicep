@@ -11,6 +11,10 @@ var policyDetails = {
 
 resource pol 'Microsoft.Authorization/policyAssignments@2021-06-01' = {
   name: policyDetails.assignmentName
+  identity: {
+    type: 'SystemAssigned'
+  }
+  location: 'australiaeast'
   properties: {
     policyDefinitionId: policyDetails.policyDefinitionId
     description: policyDetails.description
